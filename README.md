@@ -1,4 +1,4 @@
-VerteileDatenbanken
+Verteilte Datenbanken
 ===================
 
 DEZSYS02 - VERTEILTE DATENBANKEN
