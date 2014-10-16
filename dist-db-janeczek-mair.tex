@@ -57,8 +57,8 @@ welchen Tagen welche Men√ºs serviert wurden. An jedem Tag werden genau drei Men√
 
 \newpage
 \section{Technology}
-\subsection{Distributed Databases}
-404 error
+\subsection{OracleXE}
+OracleXE is an Application which provides you with an database. You can also create
 
 \newpage
 \section{Design Consideration}
@@ -134,6 +134,17 @@ The next step is to insert useful data into our database. This can be done eithe
 \subsection{Creating another Database with different INSERTs}
 After finally filling the database with data, we have yet to create a second database with different data but the struct of the db remains the same.
 \subsection{Linking the created Databases together}
+To create a link which is able to get the data from another database you will need this code:\\
+
+CREATE PUBLIC DATABASE LINK chrisDB
+CONNECT TO janczek IDENTIFIED BY passwd
+USING '//192.168.2.3:1521/dbName';\\
+
+You can use this code then with the following select:\\
+
+SELECT * FROM zutaten@chrisDB;\\
+
+\bf ATTENTION: You have to check your network configuration some connections (as an example the TGM network) is blocking such features. \\
 \newpage
 
 \section{Test Report}
