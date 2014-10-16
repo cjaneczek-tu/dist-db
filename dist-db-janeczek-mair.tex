@@ -20,33 +20,29 @@
 \newpage
 
 \section{Task Description}
-Work in group of 2 and implement a SSI/SPI Master-Slave communication between two TI Tiva C Launchpads. It should be possible to toggle the green and red led on the master with the buttons of the slave device. Don't forget to de-bounce the buttons and ensure that only if the button is pressed for exactly 2 seconds the led should be toggled.\cite{SPI_SSI}
-
+404 error
 
 \section{Technology}
-\subsection{SPI}
-SPI, which means Serial Peripheral Interface, is an Interface bus which is able to send data between micro-controllers and small peripherals. To do so it uses a separate clock line and data-lines. It also has a select line in order to be able to communicate with more than one device (slave-select).\cite{SPI_expl}
+\subsection{Distributed Databases}
+404 error
 
-
-\subsection{SSI}
-Beispiel Text
 \newpage
 
 \section{Design Consideration}
-\subsection{Nedded functions}
-We use interrupts to reduce the amount of work for the master. We also need a timer to be able to execute the task at "exact" 2 seconds. After talking with the Prof. Borko about this feature he revoked the feature and changed it to about 2 seconds so a normal timer would work. We are going to use SSI to send the needed information and data.
-\subsection{Solution}
-In our design the master device will wait for a button to be pressed. The button-press triggers an interrupt which starts a timer. If the button-state (pressed) isn't going to be changed after about 2 seconds the timer will trigger another interrupt which sends data to the slave-device. After the slave receives the data he changes the state of his current led (on-off / off-on).
-\subsection{Data definition}
-The cable we are going to use only has a bandwidth of 4 to 16 Bits. This is why we need to think about what information we are going to send to the slave.
-
-We do need a Device ID (Which device is in which row) - max. (8) devices - 3 Bits needed
-We also want to transmit the port and pin info - 3 Bits for ports (6) – 3 Bits for pins (8)
-The state definition of the lamp is also needed in this project - 1 Bit (2) to toggle the lamp
-
-We also would be able to send the timer data, but we decided that the timer will run on the master side.
-
-So we need 10 bits to send the slave the information he needs.
+\subsection{Creating an Entity-Relationship-Diagram}
+The first task would be to create an Entity-Relationship-Diagram to begin with. From this point on out we are able to discuss our current design concept. The next step would be to implement the whole idea into the already downloaded OracleXE Virtual Machine. But before that, the second task has to be fulfilled: you know it: Creating a Relational Model.
+\subsection{Creating a Relational Model}
+The creation of the Relational-Model had to be done simultaneously to the creation of the ER-Diagram to save as much time humanly possible. The underline command will be very useful here to differ between Primary Keys and Foreign Keys. Creating the Relational Model will be an easy task, because we have direct intercommunication with each person working on this very application.
+\subsection{Implementing the whole concept in OracleXE}
+\subsubsection{Configuring OracleXE}
+First of all, we had to get the Virtual Machine for OracleXE. This very Virtual Machine had already configured a functional OracleXE environment to work with. In this particular case we chose the password 'oracle'.
+\subsubsection{Creating a new Database User}
+The next step would be to create a new database user, baptised under the name 'janemair'. Put in the following command: \\ \\ \textbf{create user janemair identified by schueler;}
+\subsubsection{Granting Privileges to janemair}
+As we know it from other Database-Management-System like postgreSQL and mySQL, we have to grant the newly created user some of the most important privileges. This is achieved by the already known command: \\ \\ \textbf{grant all privileges to janemair;} \\ \\
+\subsection{Getting started with SQL Developer}
+\subsubsection{Installing SQL Developer}
+To install and start SQL Developer use the following link referenced as: [1...http://www.oracle.com/technetwork/developer-tools/sql-developer/]
 
 \newpage
 
