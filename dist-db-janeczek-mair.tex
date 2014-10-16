@@ -58,7 +58,7 @@ welchen Tagen welche Men√ºs serviert wurden. An jedem Tag werden genau drei Men√
 \newpage
 \section{Technology}
 \subsection{OracleXE}
-OracleXE is an Application which provides you with an database. You can also create
+OracleXE is an application which provides you with a database. You can also create
 
 \newpage
 \section{Design Consideration}
@@ -75,17 +75,18 @@ We will work with SQL Developer and try to meet the requirements in the task des
 \newpage
 \section{Apportionment of work with effort estimation}
 
-\subsection{Task execution time}
-insert image of excel list here
-\subsection{Estimated Work}
-insert image of excel list here
+\textbf{Janeczek:} \\ \\
+\includegraphics{wh-chris}
+\textbf{Mair:} \\ \\
+\includegraphics{wh-wolfi} \\ \\
+\includegraphics{wh-sum}
 
 \newpage
 \section{Task Execution}
 \subsection{Creating an ER-Diagram}
 The Entity-Relation-Diagram was successfully created.
 
-insert picture here.
+\includegraphics[scale=0.5]{dist-db-ERD}
 
 \subsection{Creating a Relational Model}
 The Relational Model was successfully created. \\ \\ MenuHistory(\underline{date}, Menu.name1, Menu.name2, Menu.name3) 3 meals per day \\
@@ -100,7 +101,7 @@ Lager(\underline{id}, \underline{Zutaten.id}, bestand) \\
 Bestellposten(\underline{Zutaten.id}, \underline{Bestellung.nr}, \underline{Lieferant.uid}, preis, menge) \\
 Bestellung(\underline{bnr}, bestelldatum, lieferdatum) \\
 Rechnung(\underline{rnr}, \underline{Bestellung.bnr}, bankv, rSumme) \\
-
+\newpage
 \subsection{Configuring OracleXE}
 First of all, we had to get the Virtual Machine for OracleXE. This very Virtual Machine had already configured a functional OracleXE environment to work with. In this particular case we chose the password 'oracle'. So the login has got the following credentials: \\ \\ \textbf{username: system} \\ \textbf{password: oracle}
 \subsection{Creating a new Database User}
@@ -123,6 +124,8 @@ After SQL Developer was installed, the next thing to do is to create a connectio
 	\item name of the database (also known as SID)
 	\item optionally: authentification configuration 
 \end{itemize}
+\includegraphics{richard-prop}
+
 \subsection{Implementing the CREATE SCRIPT}
 Thanks to useful Astah we are able to export a .sql CREATE SCRIPT from our ER-Diagram and import it directly to SQL Developer. All these beautiful tables and dependencies will be created automatically.
 \subsection{Inserting Data}
@@ -131,19 +134,23 @@ The next step is to insert useful data into our database. This can be done eithe
 	\item Adding some INSERT lines in the .sql file, which has been imported and importing it again.
 	\item INSERTING data via the most confusing GUI we have ever seen.
 \end{itemize}
+\includegraphics{DataMair}
 \subsection{Creating another Database with different INSERTs}
-After finally filling the database with data, we have yet to create a second database with different data but the struct of the db remains the same.
+After finally filling the database with data, we have yet to create a second database with different data but the struct of the db remains the same. \\ \\
+\includegraphics{richard}
 \subsection{Linking the created Databases together}
-To create a link which is able to get the data from another database you will need this code:\\
-
-CREATE PUBLIC DATABASE LINK chrisDB
-CONNECT TO janczek IDENTIFIED BY passwd
-USING '//192.168.2.3:1521/dbName';\\
-
+To create a link which is able to get the data from another database you will need this code:\\ \\
+\includegraphics{connected} \\ \\
+CREATE PUBLIC DATABASE LINK yada
+CONNECT TO janemair IDENTIFIED BY password
+USING '//192.168.43.242:1521/xe';\\ \\
+"xe" would be the name of janemair's database \\ \\
+\newpage
 You can use this code then with the following select:\\
 
-SELECT * FROM zutaten@chrisDB;\\
+SELECT * FROM zutaten@yada;\\
 
+\includegraphics{selects} \\ \\
 \bf ATTENTION: You have to check your network configuration some connections (as an example the TGM network) is blocking such features. \\
 \newpage
 
