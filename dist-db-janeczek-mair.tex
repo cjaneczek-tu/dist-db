@@ -58,7 +58,7 @@ welchen Tagen welche Men√ºs serviert wurden. An jedem Tag werden genau drei Men√
 \newpage
 \section{Technology}
 \subsection{OracleXE}
-OracleXE is an application which provides you with a database. You can also create
+OracleXE is an application which provides you with a database. This tool also helps you to organize and manage databases you have created within OracleXE. It also offers extra tools like SQLDeveloper which is an graphic interface for databases and it's links. Those links allow you to remotely call the database and its tables.
 
 \newpage
 \section{Design Consideration}
@@ -151,13 +151,20 @@ You can use this code then with the following select:\\
 SELECT * FROM zutaten@yada;\\
 
 \includegraphics{selects} \\ \\
-\bf ATTENTION: You have to check your network configuration some connections (as an example the TGM network) is blocking such features. \\
+\textbf{ATTENTION: You have to check your network configuration some connections (as an example the TGM network) is blocking such features.} \\
 \newpage
 
 \section{Test Report}
+Before I start explaining our tests, a warning. We figured that some networks like the TGM network may be blocking the connection you will need for these tests. We experienced it ourselves, so we used a hot-spot from Christian Janeczek's handy to establish our connection.\\
+
+After creating the link we tested it with this code:\\
+
+
+\includegraphics{selects}\\
+
+As you might see, we selected two different tables. The first one is our local database, its name is xe. This has shown us that it is possible to call local Databases with a link.
+The second table is from another database which is not local.
 \newpage
 
-\bibliographystyle{IEEEtran}
-\bibliography{References}
 
 \end{document}
